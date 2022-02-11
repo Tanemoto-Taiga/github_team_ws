@@ -129,7 +129,6 @@
 
 	/* 演習1 ここから */
 	// TODO: このコメントアウトを削除して書く
-	//otamesi
 	function add() {}
 	function sub() {}
 	function mul() {}
