@@ -135,7 +135,6 @@
 	function sub() {}
 	function mul() {}
 	function div() {}
-　//nomura
 	/* 演習1 ここまで */
 
 	/* TODO: 演習2 以降は下記に自由に記入 */
@@ -152,5 +151,7 @@
 		eqlFlag = false;
 		midNumKey = 0;
 	}
+
+	console.log("Hello World!");
 
 }());
