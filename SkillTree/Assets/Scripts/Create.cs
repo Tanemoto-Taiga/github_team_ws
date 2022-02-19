@@ -13,5 +13,6 @@ public class Create : MonoBehaviour
     {
         GameObject button = Instantiate(button1, new Vector3(960.0f, 270.0f, 0.0f), Quaternion.identity);
         button.transform.parent = canvas.transform;
+        button.AddComponent<DragDropScript>();
     }
 }
