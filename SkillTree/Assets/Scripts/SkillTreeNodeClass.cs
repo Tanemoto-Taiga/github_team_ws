@@ -1,0 +1,68 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SkillTreeNodeClass : MonoBehaviour
+{
+    //この要素のボタンオブジェクト
+    private GameObject button;
+
+    //この要素のID。0がrootで、0,1,2,3,4…とボタンオブジェクトをつくる度に割り振られる
+    private int id;
+
+    //親要素
+    private SkillTreeNodeClass parentNode;
+
+    //子要素
+    private List<SkillTreeNodeClass> childList = new List<SkillTreeNodeClass>();
+
+    //この要素のボタンオブジェクトと親要素をインスタンス作成時に指定.この要素がrootである場合はparentNodeにnullを代入
+    public void initialize(GameObject btn, int id, SkillTreeNodeClass parentNode)
+    {
+        this.button = btn;
+        this.id = id;
+        this.parentNode = parentNode;
+
+        //parentNodeがnullでなければ（＝この要素が親を持つ場合）、親要素のchildListにこの要素を追加
+        if(parentNode != null)
+        {
+            parentNode.addChild(this);
+        }
+    }
+
+    public GameObject getButton()
+    {
+        return this.button;
+    }
+
+    public int getId()
+    {
+        return this.id;
+    }
+
+    public void setParentNode(SkillTreeNodeClass parent)
+    {
+        this.parentNode = parent;
+    }
+
+    public SkillTreeNodeClass getParentNode()
+    {
+        return this.parentNode;
+    }
+
+    //この要素の子要素を追加
+    public void addChild(SkillTreeNodeClass child)
+    {
+        this.childList.Add(child);
+        SkillTreeManager stm = GameObject.Find("SkillTreeManagerObject").GetComponent<SkillTreeManager>();
+        List<SkillTreeNodeClass> combination = new List<SkillTreeNodeClass>();
+        combination.Add(this);
+        combination.Add(child);
+        stm.addLineCombinationList(combination);
+    }
+
+    public List<SkillTreeNodeClass> getChildList()
+    {
+        return this.childList;
+    }
+}
