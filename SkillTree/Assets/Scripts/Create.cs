@@ -16,6 +16,7 @@ public class Create : MonoBehaviour
         GameObject button = Instantiate(button1, new Vector3(960.0f, 270.0f, 0.0f), Quaternion.identity);
         button.transform.SetParent(canvas.transform);
         button.AddComponent<DragDropScript>();
+        button.AddComponent<DestroyScript>();
 
         button.AddComponent<SkillTreeNodeClass>();
         SkillTreeNodeClass node = button.GetComponent<SkillTreeNodeClass>();
