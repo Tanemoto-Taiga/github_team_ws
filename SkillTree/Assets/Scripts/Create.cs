@@ -13,7 +13,7 @@ public class Create : MonoBehaviour
  
     public void createButton()
     {
-        GameObject button = Instantiate(button1, new Vector3(960.0f, 270.0f, 1.0f), Quaternion.identity);
+        GameObject button = Instantiate(button1, new Vector3(960.0f, 270.0f, 0.0f), Quaternion.identity);
         button.transform.SetParent(canvas.transform);
         button.AddComponent<DragDropScript>();
 

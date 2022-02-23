@@ -6,6 +6,8 @@ public class UIOneLine : Graphic
     [SerializeField]
     private GameObject lineObject;
 
+    public int id;
+
     [SerializeField]
     private Vector2 _position1 = new Vector2(0, 0);
     [SerializeField]
@@ -29,11 +31,6 @@ public class UIOneLine : Graphic
         Vector3 p2 = button2.transform.position - lineObject.transform.position;
         this._position2 = (Vector2)p2;
         SetVerticesDirty();
-    }
-
-    pubilc void DrawLine()
-    {
-
     }
 
     protected override void OnPopulateMesh(VertexHelper vh)

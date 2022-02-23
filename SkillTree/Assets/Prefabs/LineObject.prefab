@@ -50,10 +50,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8396226, g: 0.069183215, b: 0.029043453, a: 1}
+  m_Color: {r: 0.066037714, g: 0.06407141, b: 0.06396105, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   lineObject: {fileID: 3833122994901392919}
+  id: 0
   _position1: {x: 0, y: 0}
   _position2: {x: 0, y: 0}
   _weight: 2

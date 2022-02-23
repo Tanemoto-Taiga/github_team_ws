@@ -32,9 +32,9 @@ public class SkillTreeManager : MonoBehaviour
     {
         SkillTreeManager.lineCombinationList.Add(combination);
 
-        GameObject lineObject = GameObject.Find("LineManagerObject");
-        //GameObject lineObject = Instantiate(LinePrefab, new Vector3(402.0f, 120.0f, 0.0f), Quaternion.identity) as GameObject;
-        //lineObject.transform.SetParent(canvas.transform);
+        //GameObject lineObject = GameObject.Find("LineManagerObject");
+        GameObject lineObject = Instantiate(LinePrefab, new Vector3(402.0f, 120.0f, 0.0f), Quaternion.identity) as GameObject;
+        lineObject.transform.SetParent(canvas.transform);
         UIOneLine oneLine = lineObject.GetComponent<UIOneLine>();
         oneLine.setLineObject(lineObject);
 
@@ -50,17 +50,17 @@ public class SkillTreeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach(GameObject line in lineObjectList)
+        int combinationCount = 0;
+        foreach (GameObject line in lineObjectList)
         {
             UIOneLine oneLine = line.GetComponent<UIOneLine>();
-            foreach (List<SkillTreeNodeClass> combination in lineCombinationList)
-            {
-                GameObject button = combination[0].getButton();
-                Vector2 position = (Vector2)button.transform.position;
-                oneLine.setPosition1(position);
+            List<SkillTreeNodeClass> combination = lineCombinationList[combinationCount];
+            GameObject button = combination[0].getButton();
+            Vector2 position = (Vector2)button.transform.position;
+            oneLine.setPosition1(position);
 
-                oneLine.setPosition2(combination[1].getButton());
-            }
+            oneLine.setPosition2(combination[1].getButton());
+            combinationCount++;
         }
     }
 }
