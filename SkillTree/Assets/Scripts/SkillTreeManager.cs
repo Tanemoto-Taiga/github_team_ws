@@ -9,10 +9,10 @@ public class SkillTreeManager : MonoBehaviour
     [SerializeField]
     private GameObject LinePrefab;
 
-    //各buttonオブジェクトのコンポーネントであるSkillTreeNodeClassのインスタンスを格納
+    //各buttonオブジェクトに紐づけられているSkillTreeNodeClassのインスタンスを格納
     private static List<SkillTreeNodeClass> nodeList = new List<SkillTreeNodeClass>();
 
-    //線を引く組み合わせを2次元リストで表現
+    //線を引く組み合わせを2次元リストで格納
     private static List<List<SkillTreeNodeClass>> lineCombinationList = new List<List<SkillTreeNodeClass>>();
 
     //lineオブジェクトを格納
@@ -30,36 +30,66 @@ public class SkillTreeManager : MonoBehaviour
 
     public void addLineCombinationList(List<SkillTreeNodeClass> combination)
     {
+        //線を引く組み合わせをリストに追加
         SkillTreeManager.lineCombinationList.Add(combination);
 
-        //GameObject lineObject = GameObject.Find("LineManagerObject");
+        //線を描画するlineオブジェクトを作成
         GameObject lineObject = Instantiate(LinePrefab, new Vector3(402.0f, 120.0f, 0.0f), Quaternion.identity) as GameObject;
         lineObject.transform.SetParent(canvas.transform);
+        //lineオブジェクトの座標を指定するUIOneLineクラスのインスタンス
         UIOneLine oneLine = lineObject.GetComponent<UIOneLine>();
         oneLine.setLineObject(lineObject);
 
-        GameObject button = combination[0].getButton();
-        Vector2 position = (Vector2) button.transform.position;
-        oneLine.setPosition1(position);
+        //combinationには2つのSkillTreeNodeClassインスタンスが入っており、このインスタンスが紐づけられているbuttonオブジェクト間に線を引く
+        //まずは0番目のSkillTreeNodeClassインスタンスから紐づけられているbuttonオブジェクトを取得
+        GameObject button0 = combination[0].getButton();
+        //buttonオブジェクトから座標を取得
+        Vector3 position0 = button0.transform.position;
+        //setPosition1メソッドは線の始点座標を指定する
+        oneLine.setPosition1(position0);
 
-        oneLine.setPosition2(combination[1].getButton());
+        //1番目のSkillTreeNodeClassインスタンスから紐づけられているbuttonオブジェクトを取得
+        GameObject button1 = combination[1].getButton();
+        //buttonオブジェクトから座標を取得
+        Vector3 position1 = button1.transform.position;
+        //setPosition2メソッドは線の終点座標を指定する
+        oneLine.setPosition2(position1);
 
+        //lineオブジェクトをリストに追加
         SkillTreeManager.lineObjectList.Add(lineObject);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //線を引く処理を毎フレーム行う（buttonオブジェクトの座標移動についていくため）
+
+        //何個目の線を引くかカウント
         int combinationCount = 0;
+        //lineObjectListから現在存在するlineオブジェクトを一つずつ取得
         foreach (GameObject line in lineObjectList)
         {
+            //lineオブジェクトが持つUIOneLineクラスのインスタンスを取得
             UIOneLine oneLine = line.GetComponent<UIOneLine>();
+            //そのlineオブジェクトに対応するSkillTreeNodeClassインスタンスの組を取得
             List<SkillTreeNodeClass> combination = lineCombinationList[combinationCount];
-            GameObject button = combination[0].getButton();
-            Vector2 position = (Vector2)button.transform.position;
-            oneLine.setPosition1(position);
 
-            oneLine.setPosition2(combination[1].getButton());
+            //さっきの処理をコピー
+            //まずは0番目のSkillTreeNodeClassインスタンスから紐づけられているbuttonオブジェクトを取得
+            GameObject button0 = combination[0].getButton();
+            //buttonオブジェクトから座標を取得
+            Vector3 position0 = button0.transform.position;
+            //setPosition1メソッドは線の始点座標を指定する
+            oneLine.setPosition1(position0);
+
+            //1番目のSkillTreeNodeClassインスタンスから紐づけられているbuttonオブジェクトを取得
+            GameObject button1 = combination[1].getButton();
+            //buttonオブジェクトから座標を取得
+            Vector3 position1 = button1.transform.position;
+            //setPosition2メソッドは線の終点座標を指定する
+            oneLine.setPosition2(position1);
+
+            //カウントを一つ進める
             combinationCount++;
         }
     }

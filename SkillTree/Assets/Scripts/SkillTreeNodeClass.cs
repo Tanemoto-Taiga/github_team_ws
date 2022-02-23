@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SkillTreeNodeClass : MonoBehaviour
 {
-    //この要素のボタンオブジェクト
+    //紐づけられているbuttonオブジェクト
     private GameObject button;
 
-    //この要素のID。0がrootで、0,1,2,3,4…とボタンオブジェクトをつくる度に割り振られる
+    //ID。0がrootで、0,1,2,3,4…とボタンオブジェクトをつくる度に割り振られる
     private int id;
 
     //親要素
@@ -23,7 +23,7 @@ public class SkillTreeNodeClass : MonoBehaviour
         this.id = id;
         this.parentNode = parentNode;
 
-        //parentNodeがnullでなければ（＝この要素が親を持つ場合）、親要素のchildListにこの要素を追加
+        //parentNodeがnullでなければ（＝この要素が親を持つ場合）、親要素のchildListに自身を追加
         if(parentNode != null)
         {
             parentNode.addChild(this);
@@ -54,6 +54,8 @@ public class SkillTreeNodeClass : MonoBehaviour
     public void addChild(SkillTreeNodeClass child)
     {
         this.childList.Add(child);
+
+        //SkillTreeManagerの線を引く組み合わせを格納するリストに自身と子要素のペアを追加
         SkillTreeManager stm = GameObject.Find("SkillTreeManagerObject").GetComponent<SkillTreeManager>();
         List<SkillTreeNodeClass> combination = new List<SkillTreeNodeClass>();
         combination.Add(this);

@@ -6,8 +6,6 @@ public class UIOneLine : Graphic
     [SerializeField]
     private GameObject lineObject;
 
-    public int id;
-
     [SerializeField]
     private Vector2 _position1 = new Vector2(0, 0);
     [SerializeField]
@@ -20,15 +18,17 @@ public class UIOneLine : Graphic
         this.lineObject = lineObject;
     }
 
-    public void setPosition1(Vector2 p1)
+    //線の始点座標を指定
+    public void setPosition1(Vector3 p1)
     {
-        this.lineObject.transform.position = (Vector3) p1;
+        this.lineObject.transform.position = p1;
         SetVerticesDirty();
     }
 
-    public void setPosition2(GameObject button2)
+    //線の終点座標を指定
+    public void setPosition2(Vector3 button2vec)
     {
-        Vector3 p2 = button2.transform.position - lineObject.transform.position;
+        Vector3 p2 = button2vec - lineObject.transform.position;
         this._position2 = (Vector2)p2;
         SetVerticesDirty();
     }
