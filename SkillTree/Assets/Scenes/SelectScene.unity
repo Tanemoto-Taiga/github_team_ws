@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 403674321}
   - component: {fileID: 403674320}
   m_Layer: 5
-  m_Name: Original Tree B
+  m_Name: Make Tree B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1593,7 +1593,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Original Tree
+  m_Text: Make Tree
 --- !u!222 &1947893780
 CanvasRenderer:
   m_ObjectHideFlags: 0
