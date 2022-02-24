@@ -5,6 +5,8 @@ public class UIOneLine : Graphic
     //自身の線オブジェクト
     [SerializeField]
     private GameObject lineObject;
+    public GameObject parentButton;
+    public GameObject childButton;
 
     [SerializeField]
     private Vector2 _position1 = new Vector2(0, 0);

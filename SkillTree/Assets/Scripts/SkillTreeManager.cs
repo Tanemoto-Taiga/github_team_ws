@@ -39,6 +39,8 @@ public class SkillTreeManager : MonoBehaviour
         //lineオブジェクトの座標を指定するUIOneLineクラスのインスタンス
         UIOneLine oneLine = lineObject.GetComponent<UIOneLine>();
         oneLine.setLineObject(lineObject);
+        oneLine.parentButton = combination[0].getButton();
+        oneLine.childButton = combination[1].getButton();
 
         //combinationには2つのSkillTreeNodeClassインスタンスが入っており、このインスタンスが紐づけられているbuttonオブジェクト間に線を引く
         //まずは0番目のSkillTreeNodeClassインスタンスから紐づけられているbuttonオブジェクトを取得
@@ -57,6 +59,20 @@ public class SkillTreeManager : MonoBehaviour
 
         //lineオブジェクトをリストに追加
         SkillTreeManager.lineObjectList.Add(lineObject);
+    }
+
+    public void RemoveLine(GameObject button)
+    {
+        //lineObjectListから削除対象のlineオブジェクトを探して削除
+        for (int i = lineObjectList.Count - 1; i >= 0; i--)
+        {
+            if ((lineObjectList[i].GetComponent<UIOneLine>().parentButton == button) ^ (lineObjectList[i].GetComponent<UIOneLine>().childButton == button))
+            {
+                Destroy(lineObjectList[i]);
+                lineObjectList.RemoveAt(i);
+                lineCombinationList.RemoveAt(i);
+            }
+        }
     }
 
     // Update is called once per frame
