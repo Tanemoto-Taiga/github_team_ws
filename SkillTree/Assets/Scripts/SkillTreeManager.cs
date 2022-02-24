@@ -61,16 +61,25 @@ public class SkillTreeManager : MonoBehaviour
         SkillTreeManager.lineObjectList.Add(lineObject);
     }
 
-    public void RemoveLine(GameObject button)
+    public void RemoveLine(GameObject rmButton)
     {
+        SkillTreeNodeClass rmButtonNode = rmButton.GetComponent<SkillTreeNodeClass>();
         //lineObjectListから削除対象のlineオブジェクトを探して削除
         for (int i = lineObjectList.Count - 1; i >= 0; i--)
         {
-            if ((lineObjectList[i].GetComponent<UIOneLine>().parentButton == button) ^ (lineObjectList[i].GetComponent<UIOneLine>().childButton == button))
+            if ((lineObjectList[i].GetComponent<UIOneLine>().parentButton == rmButton) ^ (lineObjectList[i].GetComponent<UIOneLine>().childButton == rmButton))
             {
                 Destroy(lineObjectList[i]);
                 lineObjectList.RemoveAt(i);
                 lineCombinationList.RemoveAt(i);
+            }
+        }
+
+        for (int i = nodeList.Count - 1; i >= 0; i--)
+        {
+            if(nodeList[i] == rmButtonNode)
+            {
+                nodeList.RemoveAt(i);
             }
         }
     }
