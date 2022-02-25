@@ -16,5 +16,6 @@ public class StanpScript : MonoBehaviour
         GameObject button = Instantiate(image1, new Vector3(960.0f, 270.0f, 0.0f), Quaternion.identity);
         button.transform.SetParent(canvas.transform);
         button.AddComponent<DragDropScript>();
+        button.AddComponent<DestroyScript>();
     }
 }
