@@ -908,6 +908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button1: {fileID: 0}
   canvas: {fileID: 0}
+  addLineButton: {fileID: 0}
 --- !u!4 &770129959
 Transform:
   m_ObjectHideFlags: 0
@@ -1870,6 +1871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button1: {fileID: 1546135849}
   canvas: {fileID: 1431319419}
+  addLineButton: {fileID: 1351250135}
 --- !u!114 &1614195766 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 755317638609559729, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}

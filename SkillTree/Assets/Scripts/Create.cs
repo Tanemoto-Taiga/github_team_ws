@@ -2,6 +2,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
  
 public class Create : MonoBehaviour
@@ -10,7 +11,9 @@ public class Create : MonoBehaviour
     private GameObject button1;
     [SerializeField]
     private GameObject canvas;
- 
+    [SerializeField]
+    private GameObject addLineButton;
+
     public void createButton()
     {
         GameObject button = Instantiate(button1, new Vector3(960.0f, 270.0f, 0.0f), Quaternion.identity);
@@ -42,6 +45,12 @@ public class Create : MonoBehaviour
             SkillTreeNodeClass parentNode = nodeList.Last();
             //initialize(紐づけするbuttonオブジェクト, このbuttonオブジェクトのID, 親要素のSkillTreeNodeClassインスタンス)
             node.initialize(button, nodeListCount, parentNode);
+        }
+
+        Image image = addLineButton.GetComponentInChildren<Image>();
+        if(image.color == Color.gray)
+        {
+            node.addLineModeFlag = true;
         }
 
         //SkillTreeManagerのリストにこれからつくるbuttonオブジェクトに紐づけられているSkillTreeNodeClassのインスタンスを追加
