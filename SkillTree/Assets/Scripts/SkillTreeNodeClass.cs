@@ -16,6 +16,8 @@ public class SkillTreeNodeClass : MonoBehaviour
     //子要素
     private List<SkillTreeNodeClass> childList = new List<SkillTreeNodeClass>();
 
+    public bool addLineModeFlag = false;
+
     //この要素のボタンオブジェクトと親要素をインスタンス作成時に指定.この要素がrootである場合はparentNodeにnullを代入
     public void initialize(GameObject btn, int id, SkillTreeNodeClass parentNode)
     {
@@ -66,5 +68,14 @@ public class SkillTreeNodeClass : MonoBehaviour
     public List<SkillTreeNodeClass> getChildList()
     {
         return this.childList;
+    }
+
+    public void AddThisToLineCombination()
+    {
+        SkillTreeManager stm = GameObject.Find("SkillTreeManagerObject").GetComponent<SkillTreeManager>();
+        if (this.addLineModeFlag)
+        {
+            stm.addLineCombination(this);
+        }
     }
 }

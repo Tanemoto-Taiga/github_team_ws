@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillTreeManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class SkillTreeManager : MonoBehaviour
     private GameObject canvas;
     [SerializeField]
     private GameObject LinePrefab;
+    [SerializeField]
+    private GameObject addLineButton;
 
     //各buttonオブジェクトに紐づけられているSkillTreeNodeClassのインスタンスを格納
     private static List<SkillTreeNodeClass> nodeList = new List<SkillTreeNodeClass>();
@@ -17,6 +20,9 @@ public class SkillTreeManager : MonoBehaviour
 
     //lineオブジェクトを格納
     private static List<GameObject> lineObjectList = new List<GameObject>();
+
+    //線追加用のリスト
+    private static List<SkillTreeNodeClass> addCombinationList = new List<SkillTreeNodeClass>();
 
     public void addNodeList(SkillTreeNodeClass node)
     {
@@ -82,6 +88,27 @@ public class SkillTreeManager : MonoBehaviour
                 nodeList.RemoveAt(i);
             }
         }
+    }
+
+    public void addLineCombination(SkillTreeNodeClass node)
+    {
+        addCombinationList.Add(node);
+        if(addCombinationList.Count == 2)
+        {
+            addLineCombinationList(new List<SkillTreeNodeClass>(addCombinationList));
+            Image image = addLineButton.GetComponentInChildren<Image>();
+            image.color = Color.white;
+            addCombinationList.Clear();
+            foreach(SkillTreeNodeClass n in nodeList)
+            {
+                n.addLineModeFlag = false;
+            }
+        }
+    }
+
+    public void ClearAddCombinationList()
+    {
+        addCombinationList.Clear();
     }
 
     // Update is called once per frame
