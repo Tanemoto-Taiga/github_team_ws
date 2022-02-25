@@ -32,6 +32,7 @@ public class DestroyScript : MonoBehaviour, IPointerClickHandler
         if (this.DestroyFlag == true)
         {
             SkillTreeManager stm = GameObject.Find("SkillTreeManagerObject").GetComponent<SkillTreeManager>();
+            stm.ClearAddCombinationList();
             stm.RemoveLine(this.gameObject);
             Destroy(this.gameObject);
         }
