@@ -19,7 +19,7 @@ public class Create : MonoBehaviour
         button.AddComponent<DestroyScript>();
 
         //buttonオブジェクトにSkillTreeNodeClassを追加。SkillTreeNodeClassはbuttonオブジェクトの状態（目標が達成できたかなど）を表すクラスで、各buttonオブジェクトと1対1で紐づけられている
-        button.AddComponent<SkillTreeNodeClass>();
+        //button.AddComponent<SkillTreeNodeClass>();
         //追加したSkillTreeNodeClassをインスタンス化。
         SkillTreeNodeClass node = button.GetComponent<SkillTreeNodeClass>();
         //SkillTreeManagerというクラスをインスタンス化。このクラスは全buttonオブジェクトに紐づけられているSkillTreeNodeClassのインスタンスを管理・利用し、どのbuttonオブジェクト間に線を引くか決める
