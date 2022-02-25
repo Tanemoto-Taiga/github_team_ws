@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillTreeManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class SkillTreeManager : MonoBehaviour
     private GameObject canvas;
     [SerializeField]
     private GameObject LinePrefab;
+    [SerializeField]
+    private GameObject addLineButton;
 
     //各buttonオブジェクトに紐づけられているSkillTreeNodeClassのインスタンスを格納
     private static List<SkillTreeNodeClass> nodeList = new List<SkillTreeNodeClass>();
@@ -17,6 +20,9 @@ public class SkillTreeManager : MonoBehaviour
 
     //lineオブジェクトを格納
     private static List<GameObject> lineObjectList = new List<GameObject>();
+
+    //線追加用のリスト
+    private static List<SkillTreeNodeClass> addCombinationList = new List<SkillTreeNodeClass>();
 
     public void addNodeList(SkillTreeNodeClass node)
     {
@@ -39,6 +45,8 @@ public class SkillTreeManager : MonoBehaviour
         //lineオブジェクトの座標を指定するUIOneLineクラスのインスタンス
         UIOneLine oneLine = lineObject.GetComponent<UIOneLine>();
         oneLine.setLineObject(lineObject);
+        oneLine.parentButton = combination[0].getButton();
+        oneLine.childButton = combination[1].getButton();
 
         //combinationには2つのSkillTreeNodeClassインスタンスが入っており、このインスタンスが紐づけられているbuttonオブジェクト間に線を引く
         //まずは0番目のSkillTreeNodeClassインスタンスから紐づけられているbuttonオブジェクトを取得
@@ -57,6 +65,50 @@ public class SkillTreeManager : MonoBehaviour
 
         //lineオブジェクトをリストに追加
         SkillTreeManager.lineObjectList.Add(lineObject);
+    }
+
+    public void RemoveLine(GameObject rmButton)
+    {
+        SkillTreeNodeClass rmButtonNode = rmButton.GetComponent<SkillTreeNodeClass>();
+        //lineObjectListから削除対象のlineオブジェクトを探して削除
+        for (int i = lineObjectList.Count - 1; i >= 0; i--)
+        {
+            if ((lineObjectList[i].GetComponent<UIOneLine>().parentButton == rmButton) ^ (lineObjectList[i].GetComponent<UIOneLine>().childButton == rmButton))
+            {
+                Destroy(lineObjectList[i]);
+                lineObjectList.RemoveAt(i);
+                lineCombinationList.RemoveAt(i);
+            }
+        }
+
+        for (int i = nodeList.Count - 1; i >= 0; i--)
+        {
+            if(nodeList[i] == rmButtonNode)
+            {
+                nodeList.RemoveAt(i);
+            }
+        }
+    }
+
+    public void addLineCombination(SkillTreeNodeClass node)
+    {
+        addCombinationList.Add(node);
+        if(addCombinationList.Count == 2)
+        {
+            addLineCombinationList(new List<SkillTreeNodeClass>(addCombinationList));
+            Image image = addLineButton.GetComponentInChildren<Image>();
+            image.color = Color.white;
+            addCombinationList.Clear();
+            foreach(SkillTreeNodeClass n in nodeList)
+            {
+                n.addLineModeFlag = false;
+            }
+        }
+    }
+
+    public void ClearAddCombinationList()
+    {
+        addCombinationList.Clear();
     }
 
     // Update is called once per frame
