@@ -176,10 +176,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 755317637413962974, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 755317637413962974, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 755317637413962974, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 755317637413962974, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}
@@ -191,7 +195,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1655865009}
     - target: {fileID: 755317637413962974, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1655865009}
+    - target: {fileID: 755317637413962974, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 755317637413962974, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 755317637413962974, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}
@@ -203,6 +215,10 @@ PrefabInstance:
       value: ChangeButtonTextName
       objectReference: {fileID: 0}
     - target: {fileID: 755317637413962974, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 755317637413962974, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SkillTreeNodeClass, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -211,7 +227,15 @@ PrefabInstance:
       value: InputText, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 755317637413962974, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: DoubleClickButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 755317637413962974, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 755317637413962974, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 755317637467280476, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}
