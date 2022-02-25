@@ -92,6 +92,13 @@ public class SkillTreeManager : MonoBehaviour
 
     public void addLineCombination(SkillTreeNodeClass node)
     {
+        if(addCombinationList.Count == 1)
+        {
+            if(addCombinationList[0] == node)
+            {
+                return;
+            }
+        }
         addCombinationList.Add(node);
         if(addCombinationList.Count == 2)
         {

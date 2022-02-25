@@ -1782,6 +1782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button1: {fileID: 0}
   canvas: {fileID: 0}
+  textObject: {fileID: 0}
 --- !u!4 &770129959
 Transform:
   m_ObjectHideFlags: 0
@@ -2950,7 +2951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.990566, g: 0.9687611, b: 0.9687611, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2992,7 +2993,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 250, y: -546.6}
+  m_AnchoredPosition: {x: 252.9, y: -534.99}
   m_SizeDelta: {x: 200, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1351250140
@@ -3440,6 +3441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button1: {fileID: 1546135849}
   canvas: {fileID: 1431319419}
+  textObject: {fileID: 2083547540}
 --- !u!114 &1614195766 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 755317638609559729, guid: 97d11c8d48955cf438e76c4b84ba9010, type: 3}
@@ -4156,7 +4158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.1827459, g: 0.18867922, b: 0.18367821, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
