@@ -16,6 +16,10 @@ public class DestroyScript : MonoBehaviour, IPointerClickHandler
         {
             this.DestroyFlag = true;
         }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            this.DestroyFlag = false;
+        }
     }
 
 
