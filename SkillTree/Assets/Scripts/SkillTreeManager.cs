@@ -96,13 +96,7 @@ public class SkillTreeManager : MonoBehaviour
         if(addCombinationList.Count == 2)
         {
             addLineCombinationList(new List<SkillTreeNodeClass>(addCombinationList));
-            Image image = addLineButton.GetComponentInChildren<Image>();
-            image.color = Color.white;
             addCombinationList.Clear();
-            foreach(SkillTreeNodeClass n in nodeList)
-            {
-                n.addLineModeFlag = false;
-            }
         }
     }
 

@@ -56,13 +56,6 @@ public class SkillTreeNodeClass : MonoBehaviour
     public void addChild(SkillTreeNodeClass child)
     {
         this.childList.Add(child);
-
-        //SkillTreeManagerの線を引く組み合わせを格納するリストに自身と子要素のペアを追加
-        SkillTreeManager stm = GameObject.Find("SkillTreeManagerObject").GetComponent<SkillTreeManager>();
-        List<SkillTreeNodeClass> combination = new List<SkillTreeNodeClass>();
-        combination.Add(this);
-        combination.Add(child);
-        stm.addLineCombinationList(combination);
     }
 
     public List<SkillTreeNodeClass> getChildList()

@@ -5,14 +5,21 @@ using UnityEngine.UI;
 
 public class AddLine : MonoBehaviour
 {
+    void Start()
+    {
+        Text text = this.gameObject.GetComponentInChildren<Text>();
+        text.color = Color.black;
+    }
+
+
     public void AddLineObject()
     {
         SkillTreeManager stm = GameObject.Find("SkillTreeManagerObject").GetComponent<SkillTreeManager>();
         List<SkillTreeNodeClass> nodeList = stm.getNodeList();
-        Image image = this.gameObject.GetComponentInChildren<Image>();
-        if (image.color == Color.white)
+        Text text = this.gameObject.GetComponentInChildren<Text>();
+        if (text.color == Color.black)
         {
-            image.color = Color.gray;
+            text.color = Color.yellow;
             foreach (SkillTreeNodeClass node in nodeList)
             {
                 node.addLineModeFlag = true;
@@ -20,7 +27,7 @@ public class AddLine : MonoBehaviour
         }
         else
         {
-            image.color = Color.white;
+            text.color = Color.black;
             foreach (SkillTreeNodeClass node in nodeList)
             {
                 node.addLineModeFlag = false;
